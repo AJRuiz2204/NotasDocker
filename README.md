@@ -234,3 +234,31 @@ Si utilizas Docker Compose para orquestar varios contenedores, estos son los com
   docker network inspect <nombre_de_la_red>
   docker volume inspect <nombre_del_volumen>
   ```
+
+  Para detener, eliminar y levantar todos los servicios definidos en tu docker-compose, puedes usar los siguientes comandos:
+
+1. **Detener y eliminar los contenedores y redes (sin borrar volúmenes):**
+
+   ```bash
+   docker-compose down
+   ```
+
+2. **Si también deseas eliminar los volúmenes (útil en desarrollo para empezar desde cero):**
+
+   ```bash
+   docker-compose down -v
+   ```
+
+3. **Levantar los servicios en segundo plano:**
+
+   ```bash
+   docker-compose up -d
+   ```
+
+4. **Si necesitas forzar la reconstrucción de las imágenes (por ejemplo, después de cambios en el Dockerfile):**
+
+   ```bash
+   docker-compose up --build -d
+   ```
+
+Estos comandos te permitirán detener y reiniciar todos los servicios de Docker definidos en tu archivo `docker-compose.yml`.
